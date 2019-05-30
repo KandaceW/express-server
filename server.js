@@ -11,7 +11,13 @@ server.get('/compliment', function(req, res){
 })
 
 server.get('/profile', function(req, res){
-    res.sendFile(path.join(__dirname, 'silvia.html'))
+    var name = req.query.name
+    if (name == 'sampson'){
+        res.sendFile(path.join(__dirname, 'sampson.html'))
+    } else if(name == 'silvia'){
+        res.sendFile(path.join(__dirname, 'silvia.html'))
+    }
+
 })
 
 
