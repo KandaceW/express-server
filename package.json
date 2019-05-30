@@ -19,6 +19,7 @@
   "homepage": "https://github.com/dev-academy-challenges/express-server#readme",
   "dependencies": {
     "express": "^4.16.4",
+    "nodemon": "^1.18.10",
     "supertest": "^4.0.2"
   },
   "devDependencies": {
