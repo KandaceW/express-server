@@ -1,5 +1,9 @@
-const express = require('express')
+const express = require("express");
 
-const server = express()
+const server = express();
 
-module.exports = server
+server.get("/compliment", function(req, res) {
+  res.send("I like your feet.");
+});
+
+module.exports = server;
