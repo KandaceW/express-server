@@ -9,8 +9,19 @@ server.get('/compliment', function (req, res) {
 })
 
 server.get('/profile', function (req, res) {
-  res.sendFile(path.join(__dirname, 'silvia.html'))
+  var name = req.query.name
+  console.log(name)
+  if (name == 'silvia') {
+    res.sendFile(path.join(__dirname, 'silvia.html'))
+  }
+  else if (name == 'sampson') {
+    res.sendFile(path.join(__dirname, 'sampson.html'))
+  }
 })
+
+// server.get('/profile', function (req, res) {
+//     res.sendFile(path.join(__dirname, 'silvia.html')) 
+//   })
 
 
 module.exports = server
