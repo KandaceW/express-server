@@ -19,6 +19,7 @@ server.get('/profile', function (req, res) {
 
 server.get('/profiles/:id', function (req, res) {
   var id = req.params.id
+
   if (req.params.id == 1) {
     res.sendFile(__dirname + "/silvia.html")
   }
