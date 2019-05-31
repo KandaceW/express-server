@@ -4,6 +4,9 @@ const server = express()
 server.use(express.static('public'))
 server.use(express.urlencoded({ extended: true }))
 
+
+
+
 const path = require('path')
 
 
@@ -13,13 +16,13 @@ server.get('/compliment', function (req, res) {
   res.send('you have wonderful fingers')
 })
 
-server.post('/profile', function (req, res) {
+server.post('/named-compliment', function (req, res) {
   var name = req.body.name
 
-  console.log(req.body)
-
-  res.send('name:' + name)
+  res.redirect(`/profile?name=${name}`)
 })
+
+
 
 
 server.get('/profile', function (req, res) {
@@ -47,6 +50,10 @@ server.get('/profiles/:id', function (req, res) {
     res.send('you have wonderful feet')
   }
 })
+
+server.post('/named-compliment')
+
+
 
 module.exports = server
 
