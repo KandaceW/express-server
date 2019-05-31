@@ -2,6 +2,8 @@ const express = require('express')
 
 const server = express()
 
+server.use(express.static('public'))
+
 const path = require('path')
 
 server.get('/compliment', function (req, res) {
@@ -10,7 +12,7 @@ server.get('/compliment', function (req, res) {
 
 server.get('/profile', function (req, res) {
   var name = req.query.name
-  
+
   if (name == 'silvia') {
     res.sendFile(path.join(__dirname, "silvia.html"))
   } else if (name == 'sampson') {
@@ -22,7 +24,7 @@ server.get('/profile', function (req, res) {
 
 server.get('/profiles/:id', function (req, res) {
   var id = req.params.id
-  
+
   if (id == '1') {
     res.sendFile(path.join(__dirname, "silvia.html"))
   } else if (id == '2') {
@@ -31,6 +33,5 @@ server.get('/profiles/:id', function (req, res) {
     res.sendFile(path.join(__dirname, "welcome.html"))
   }
 })
-
 
 module.exports = server
