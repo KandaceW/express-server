@@ -1,4 +1,6 @@
 const express = require('express')
+server.use(express.static('public'))
+server.get(express.urlencoded)
 
 const server = express()
 
@@ -28,6 +30,11 @@ server.get('/profiles/:id', function (req, res) {
   }
 })
 
-server.use(express.static('public'))
+server.post('/named-compliment', function (req, res) {
+  var name = req.body.name
+  res.send('name')
+})
+
+
 module.exports = server
 
