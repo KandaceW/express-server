@@ -4,6 +4,10 @@ const server = express()
 
 server.use(express.static('public'))
 
+server.use(express.urlencoded({
+  extended: true
+}))
+
 const path = require('path')
 
 server.get('/compliment', function (req, res) {
@@ -18,7 +22,7 @@ server.get('/profile', function (req, res) {
   } else if (name == 'sampson') {
     res.sendFile(path.join(__dirname, "sampson.html"))
   } else {
-    res.sendFile(path.join(__dirname, "welcome.html"))
+    res.sendFile(path.join(__dirname, "/public/get-name.html"))
   }
 })
 
@@ -30,8 +34,13 @@ server.get('/profiles/:id', function (req, res) {
   } else if (id == '2') {
     res.sendFile(path.join(__dirname, "sampson.html"))
   } else {
-    res.sendFile(path.join(__dirname, "welcome.html"))
+    res.sendFile(path.join(__dirname, "/public/get-name.html"))
   }
+})
+
+server.post("/named-compliment", function (req, res) {
+  var name = req.body.name
+  res.send("<h1>You look great today " + name + "!</h1>")
 })
 
 module.exports = server
