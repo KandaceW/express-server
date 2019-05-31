@@ -39,7 +39,7 @@ server.post('/named-compliment', function (req, res) {
   console.log(req.body)
   var name = req.body.name
 
-  res.send("<h1>" + name + ", thanks for your support!</h1>")
+  res.send("<h1>" + name + ", ¯\\_(ツ)_/¯ ?</h1>")
 })
 
 module.exports = server;
