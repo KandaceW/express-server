@@ -20,6 +20,17 @@ server.get('/profile', function (req, res) {
   }
 })
 
+server.get('/profiles/:id', function (req, res) {
+  var id = req.params.id
+  
+  if (id == '1') {
+    res.sendFile(path.join(__dirname, "silvia.html"))
+  } else if (id == '2') {
+    res.sendFile(path.join(__dirname, "sampson.html"))
+  } else {
+    res.sendFile(path.join(__dirname, "welcome.html"))
+  }
+})
 
 
 module.exports = server
