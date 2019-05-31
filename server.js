@@ -18,12 +18,15 @@ server.get('/profile', function (req, res) {
 })
 
 server.get('/profiles/:id', function (req, res) {
+  var id = req.params.id
   if (req.params.id == 1) {
     res.sendFile(__dirname + "/silvia.html")
   }
-  if (req.param.id == 2) {
+  if (req.params.id == 2) {
     res.sendFile(__dirname + "/sampson.html")
   }
 })
+
+server.use(express.static('public'))
 
 module.exports = server
