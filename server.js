@@ -28,4 +28,6 @@ server.get('/profiles/:id', function (req, res) {
   }
 })
 
+server.use(express.static('public'))
 module.exports = server
+
