@@ -4,6 +4,7 @@ const server = express()
 var PORT = 3000
 
 server.use(express.static('/home/student/workspace/express-server/public'))
+server.use(express.urlencoded({extended: true}));
 
 
 server.get('/profile', function (req, res) {
@@ -23,6 +24,23 @@ server.get('/profiles', function (req, res) {
   }
   
 });
+
+server.get('/get-name', function (req, res) {
+  res.sendFile('/home/student/workspace/express-server/public/get-name.html')
+});
+
+server.post('/get-name', (req, res)=> {
+  const name = req.body.name;
+  const nameQuery = "?name="
+  if(name === "silvia" || name === "Silvia"){
+    res.redirect('/profile' + nameQuery + name)
+  }else if(name == "sampson" || name == "Sampson"){
+    res.redirect('/profile' + nameQuery + name)
+  }else{
+    res.send(name + ", You need to set up a profile!")
+  }
+  res.end();
+})
 
 
 
